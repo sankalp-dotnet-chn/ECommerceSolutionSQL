@@ -1,6 +1,8 @@
 <h1>Demo for Microservices using Ocelot and SQL</h1>
 
-<h2>Steps to Run the Solution</h2>
+Added postman collections for both gateway and direct apis. 
+
+<h3>Steps to Run the Solution</h3>
 
 Configure Database Connections<br>
 Open the following files and update the connection strings to match your environment:<br>
