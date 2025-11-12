@@ -41,6 +41,7 @@ namespace ProductsService.Controllers
             return NoContent();
         }
 
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -50,5 +51,22 @@ namespace ProductsService.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpPatch("{id}/stock")]
+        public async Task<IActionResult> UpdateStock(int id, [FromBody] StockUpdateDto stockDto)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+
+            product.Stock = stockDto.Stock;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        public class StockUpdateDto
+        {
+            public int Stock { get; set; }
+        }
+
     }
 }
